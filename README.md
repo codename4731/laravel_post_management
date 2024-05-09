@@ -3,7 +3,7 @@
 A web application built with Laravel for managing posts, featuring user authentication, CRUD operations, and role-based access control.
 
 ## Installation
-
+```bash
 1. Clone the repository:
     git clone https://github.com/codename4731/laravel_post_management.git
 
@@ -20,6 +20,7 @@ A web application built with Laravel for managing posts, featuring user authenti
     php artisan key:generate
 
 6. Set up your database in the `.env` file:
+
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
     DB_PORT=3306
@@ -37,8 +38,23 @@ A web application built with Laravel for managing posts, featuring user authenti
     php artisan serve
     
 Visit `http://localhost:8000` in your web browser to access the application.
+```
 
 ## Configuration
-
+```bash
 - Set up file storage symlink for images:
     php artisan storage:link
+```
+
+## Usage
+```bash
+1. Register a new user or login with existing credentials.
+2. Navigate to the dashboard to view existing posts or create new posts.
+3. Click on a post to view its details, edit, or delete it.
+```
+
+## Testing
+```bash
+Run PHPUnit tests:
+    php artisan test
+```    
