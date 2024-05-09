@@ -42,10 +42,32 @@
         </div>
         @endforeach
     </div>
-    <div class="row">
-        <div class="col">
-            {{ $posts->links() }}
-        </div>
-    </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center pagination-lg">
+            <li class="page-item {{ $posts->onFirstPage() ? 'disabled' : '' }}">
+                <a class="page-link" href="{{ $posts->previousPageUrl() }}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+
+            @if($posts->currentPage() > 1)
+            <li class="page-item"><a class="page-link" href="{{ $posts->url($posts->currentPage() - 1) }}">{{ $posts->currentPage() - 1 }}</a></li>
+            @endif
+
+            <li class="page-item active"><a class="page-link" href="#">{{ $posts->currentPage() }}</a></li>
+
+            @if($posts->hasMorePages())
+            <li class="page-item"><a class="page-link" href="{{ $posts->nextPageUrl() }}">{{ $posts->currentPage() + 1 }}</a></li>
+            @endif
+
+            <li class="page-item {{ !$posts->hasMorePages() ? 'disabled' : '' }}">
+                <a class="page-link" href="{{ $posts->nextPageUrl() }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </div>
 @endsection
